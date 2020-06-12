@@ -1,5 +1,5 @@
 # eidos
-eidos - Python Package for extract of 2D shape measurements from binary images.
+eidos - Python functions to extract of 2D shape measurements from binary images.
 
 ## Introduction
 **Eidos** is the greek word for shape. Quantitative measurement of particle shapes based on binary images is used in many fields. However, right now there is no comprehensive Python package that allows fast and easy computation of the variety of different shape measurements proposed in the scientific literature. Here **eidos** comes in.
