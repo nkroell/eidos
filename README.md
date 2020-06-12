@@ -6,6 +6,10 @@ eidos - Python Package for extract of 2D shape measurements from binary images.
 
 We unify different coordinate systems, conventions and data formats to calculate - fast and easy - the shape measurements of particles defined as 2d binary images.
 
+## How to use eidos?
+% todo
+
+
 ## Dependencies
 
 *Eidos* is based on 2d binary images that are defined as NumPy arrays. Where exisisting, we use the powerfull implementation of scikit-image and OpenCV as well as functions given by NumPy and SciPy. **eidos** is developed in Python 3.7.
@@ -15,4 +19,7 @@ To use **eidos** you need the following Python packages:
   * [SciPy](https://www.scipy.org/)
   * [scikit-image](https://www.scikit-image.org/)
   * [opencv](https://www.opencv.org/)
+  * [pandas](https://www.pandas.pydata.org/)
 
+## License
+**Eidos** is published under the MIT-License. Your are free to use it. If you have suggestions for improvement or new features feel free to post a new issue.
