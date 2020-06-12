@@ -21,5 +21,7 @@ To use **eidos** you need the following Python packages:
   * [opencv](https://www.opencv.org/)
   * [pandas](https://www.pandas.pydata.org/)
 
+## Literature
+
 ## License
 **Eidos** is published under the MIT-License. Your are free to use it. If you have suggestions for improvement or new features feel free to post a new issue.
