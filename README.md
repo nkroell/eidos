@@ -20,6 +20,36 @@ As a result you get a [pandas](https://www.pandas.pydata.org/) dataframe `df`, i
 
 For details on image segmentation you may look at [scikit-image](https://www.scikit-image.org/). 
 
+## Conventions
+
+### Coordinate system
+**Eidos** uses right hand cardesian coordinate system, which is also used in [scikit-image](https://www.scikit-image.org/):
+
+```python
+
+# (row, col, channel)
+# 
+# o------------> y
+#     /|
+#    / |
+#   /  |
+# z    |
+#      v
+#      x
+
+```
+### Color represenation
+
+Color are representated as `float64` tuples:
+```python
+
+color = (red, green, blue)
+
+```
+
+The intensity values for each colorchannel are in the range `[0,1]`.
+
+
 
 
 ## Dependencies
