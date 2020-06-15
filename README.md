@@ -1,7 +1,6 @@
-![alt text](https://github.com/nkroell/eidos/raw/development/images/eidos.png "Eidos Logo")
-*Image scetch based on [5].*
-
 # Eidos
+![alt text](https://github.com/nkroell/eidos/raw/development/images/eidos2.png "Eidos Logo")
+
 eidos - Python functions to extract of 2D shape measurements from binary images.
 
 ## Introduction
