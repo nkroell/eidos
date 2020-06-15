@@ -15,10 +15,10 @@ df = extract_all_shape_measurements_2d(bw)
 
 ```
 
+As a result you get a [pandas](https://www.pandas.pydata.org/) dataframe where one row representats one found particle and each column an extracted shape measurement.
 
 For details on image segmentation you may look at [scikit-image](https://www.scikit-image.org/). 
 
-% todo
 
 
 ## Dependencies
