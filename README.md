@@ -23,7 +23,7 @@ For details on image segmentation you may look at [scikit-image](https://www.sci
 
 ## Dependencies
 
-*Eidos* is based on 2d binary images that are defined as NumPy arrays. Where exisisting, we use the powerfull implementation of scikit-image and OpenCV as well as functions given by NumPy and SciPy. **eidos** is developed in Python 3.7.
+**Eidos** is based on 2d binary images that are defined as NumPy arrays. Where exisisting, we use the powerfull implementation of scikit-image and OpenCV as well as functions given by NumPy and SciPy. **eidos** is developed in Python 3.7.
 
 To use **eidos** you need the following Python packages:
   * [NumPy](https://www.numpy.org/)
@@ -34,25 +34,25 @@ To use **eidos** you need the following Python packages:
 
 ## Literature
 
-[1] Y. M. Lau, N. G. Deen and J. A. M. Kuipers (2013). *Development of an image measurement technique for size distribution in dense bubbly flows*. Chemical Engineering Science, 94, 20–29. https://doi.org/10.1016/j.ces.2013.02.043
+[1] Y. M. Lau, N. G. Deen and J. A. M. Kuipers (2013). *Development of an image measurement technique for size distribution in dense bubbly flows*. Chemical Engineering Science, 94, pp. 20–29. https://doi.org/10.1016/j.ces.2013.02.043
 
-[2] T. Andersson, M. J. Thurley and Carlson, J. E. (2012). *A machine vision system for estimation of size distributions by weight of limestone particles*. Minerals Engineering, 25(1), 38–46. https://doi.org/10.1016/j.mineng.2011.10.001
+[2] T. Andersson, M. J. Thurley and Carlson, J. E. (2012). *A machine vision system for estimation of size distributions by weight of limestone particles*. Minerals Engineering, 25(1), pp. 38–46. https://doi.org/10.1016/j.mineng.2011.10.001
 
 [3] T. M. Nguyen and R. M. Rangayyan (2005). *Shape Analysis of Breast Masses in Mammograms via the Fractal Dimension*. 2005 IEEE Engineering in Medicine and Biology 27th Annual Conference, Shanghai, 2005, pp. 3210-3213. https://doi.org/10.1109/IEMBS.2005.1617159
 
-[4] T. G. Smith, G. D. Lange and W. B. Marks (1996). *Fractal methods and results in cellular morphology — dimensions, lacunarity and multifractals*. Journal of Neuroscience Methods, 69(2), 123–136. https://doi.org/10.1016/s0165-0270(96)00080-5
+[4] T. G. Smith, G. D. Lange and W. B. Marks (1996). *Fractal methods and results in cellular morphology — dimensions, lacunarity and multifractals*. Journal of Neuroscience Methods, 69(2), pp. 123–136. https://doi.org/10.1016/s0165-0270(96)00080-5
 
 [5] Deutsches Institut für Normung e. V. (2012). *DIN ISO 9276-6 - Darstellung der Ergebnisse von Par-tikelgrößenanalysen: Teil 6: Deskriptive und quantitative Darstellung der Form und Morphologievon Partikeln*.
 
-[6] M. Pahl, G. Schädel und H. Rumpf. *Zusammenstellung von Teilchenformbeschreibungs-methoden: 1. Teil*. In:Aufbereitungstechnik14.5 (1973), S. 257–264.
+[6] M. Pahl, G. Schädel und H. Rumpf (1973). *Zusammenstellung von Teilchenformbeschreibungs-methoden: 1. Teil*. In: Aufbereitungstechnik 14.5, pp. 257–264.
 
-[7] M. Pahl, G. Schädel und H. Rumpf. *Zusammenstellung von Teilchenformbeschreibungs-methoden: 2. Teil*. In:Aufbereitungstechnik14.10 (1973), S. 672–683.
+[7] M. Pahl, G. Schädel und H. Rumpf (1973). *Zusammenstellung von Teilchenformbeschreibungs-methoden: 2. Teil*. In: Aufbereitungstechnik 14.10, pp. 672–683.
 
-[8] M. Pahl, G. Schädel und H. Rumpf. *Zusammenstellung von Teilchenformbeschreibungs-methoden: 3. Teil*. In:Aufbereitungstechnik14.11 (1973), S. 759–764.
+[8] M. Pahl, G. Schädel und H. Rumpf (1973). *Zusammenstellung von Teilchenformbeschreibungs-methoden: 3. Teil*. In: Aufbereitungstechnik 14.11 , pp. 759–764.
 
-[9] W. Pabst und E. Gregorova. *Characterization of particles and particle systems*. 2007.
+[9] W. Pabst und E. Gregorova (2007). *Characterization of particles and particle systems*.
 
-[10] M. Steuer. *Serial classification*. In:AT Mineral Processing English Edition51.1 (2010).
+[10] M. Steuer (2010). *Serial classification*. In: AT Mineral Processing.
 
 [11] S. Walt, J. Schönberger, J. Nunez-Iglesias, F. Boulogne, J. Warner, N. Yager, E. Gouillart, T. Yu and the scikit-image contributors. scikit-image: Image processing in Python. PeerJ 2:e453 (2014) https://doi.org/10.7717/peerj.453
 
