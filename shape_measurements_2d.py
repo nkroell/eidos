@@ -96,6 +96,12 @@ def _shape_measurements_2d_single_object(bw, dalpha):
     max_inclosing_circle_center, max_inclosing_circle_radius = calc_max_inclosing_circle(bw)
     min_enclosing_circle_center, min_enclosing_circle_radius = calc_min_enclosing_circle(contour)
     circumscribing_circle_radius, inscribing_circle_radius = calc_circumscribing_and_inscribing_circle(centroid, contour)
+    
+    # use diameters instead of radii:
+    max_inclosing_circle_diameter = 2 * max_inclosing_circle_radius
+    min_enclosing_circle_diameter = 2 * min_enclosing_circle_radius
+    circumscribing_circle_diameter = 2 * circumscribing_circle_radius
+    inscribing_circle_diameter = 2 * inscribing_circle_radius
 
     # Statistical length
     # distributions
@@ -139,10 +145,10 @@ def _shape_measurements_2d_single_object(bw, dalpha):
         "convex_area": convex_area,
         "major_axis_length": major_axis_length,
         "minor_axis_length": minor_axis_length,
-        "max_inclosing_circle_radius": max_inclosing_circle_radius,
-        "min_enclosing_circle_radius": min_enclosing_circle_radius,
-        "circumscribing_circle_radius": circumscribing_circle_radius,
-        "inscribing_circle_radius": inscribing_circle_radius,
+        "max_inclosing_circle_diameter": max_inclosing_circle_diameter,
+        "min_enclosing_circle_diameter": min_enclosing_circle_diameter,
+        "circumscribing_circle_diameter": circumscribing_circle_diameter,
+        "inscribing_circle_diameter": inscribing_circle_diameter,
         "x_max": x_max,
         "y_max": y_max,
         "width_min_bb": width_min_bb,
