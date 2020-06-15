@@ -23,7 +23,7 @@ For details on image segmentation you may look at [scikit-image](https://www.sci
 
 ## Dependencies
 
-**Eidos** is based on 2d binary images that are defined as NumPy arrays. Where exisisting, we use the powerfull implementation of scikit-image and OpenCV as well as functions given by NumPy and SciPy. **eidos** is developed in Python 3.7.
+**Eidos** is based on 2D binary images that are defined as NumPy arrays. Where exisisting, we use the powerfull implementation of scikit-image and OpenCV as well as functions given by NumPy and SciPy. **eidos** is developed in Python 3.7.
 
 To use **eidos** you need the following Python packages:
   * [NumPy](https://www.numpy.org/)
