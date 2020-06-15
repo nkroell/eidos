@@ -24,8 +24,12 @@ To use **eidos** you need the following Python packages:
 ## Literature
 
 [1] Y. M. Lau, N. G. Deen and J. A. M. Kuipers (2013). Development of an image measurement technique for size distribution in dense bubbly flows. Chemical Engineering Science, 94, 20–29. doi:10.1016/j.ces.2013.02.043
+
 [2] T. Andersson, M. J. Thurley and Carlson, J. E. (2012). A machine vision system for estimation of size distributions by weight of limestone particles. Minerals Engineering, 25(1), 38–46. doi:10.1016/j.mineng.2011.10.001
+
 [3] T. M. Nguyen and R. M. Rangayyan (2005). Shape Analysis of Breast Masses in Mammograms via the Fractal Dimension. 2005 IEEE Engineering in Medicine and Biology 27th Annual Conference, Shanghai, 2005, pp. 3210-3213. doi:10.1109/IEMBS.2005.1617159
+
 [4] T. G. Smith, G. D. Lange and W. B. Marks (1996). Fractal methods and results in cellular morphology — dimensions, lacunarity and multifractals. Journal of Neuroscience Methods, 69(2), 123–136. doi:10.1016/s0165-0270(96)00080-5
+
 ## License
 **Eidos** is published under the MIT-License. Your are free to use it. If you have suggestions for improvement or new features feel free to post a new issue.
