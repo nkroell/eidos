@@ -135,7 +135,7 @@ def _shape_measurements_2d_single_object(bw, dalpha):
 
     ##### MICRODESCRIPTORS ##### 
     fractal_dimension_boxcounting_method = calc_fractal_dimension_boxcounting_method(bw_cropped)
-    fractal_dimension_boxcounting_method = calc_fractal_dimension_perimeter_method(contour, max_feret)
+    fractal_dimension_perimeter_method = calc_fractal_dimension_perimeter_method(contour, max_feret)
 
     shape_measurements = {
         "perimeter": perimeter,
@@ -160,7 +160,7 @@ def _shape_measurements_2d_single_object(bw, dalpha):
         "n_erosions_binary_image": n_erosions_binary_image,
         "n_erosions_complement": n_erosions_complement,
         "fractal_dimension_boxcounting_method": fractal_dimension_boxcounting_method,
-        "fractal_dimension_boxcounting_method": fractal_dimension_boxcounting_method,    
+        "fractal_dimension_perimeter_method": fractal_dimension_perimeter_method,    
         "max_feret": max_feret,
         "min_feret": min_feret,
         "median_feret": median_feret,
