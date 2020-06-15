@@ -1,5 +1,6 @@
-# eidos
+# Eidos
 eidos - Python functions to extract of 2D shape measurements from binary images.
+![alt text](https://github.com/nkroell/eidos/raw/development/images/eidos.png "Eidos Logo")
 
 ## Introduction
 **Eidos** is the greek word for shape. Quantitative measurement of particle shapes based on binary images is used in many fields, for example chemistry [1], mineral engineering [2], medicine [3] and biology [4]. However, right now there is no comprehensive Python package that allows fast and easy computation of the variety of different shape measurements proposed in the scientific literature (e.g. [5-10]). While there are already powerfull Python packages for image analysis like [scikit-image](https://www.scikit-image.org/) [11] or [opencv](https://www.opencv.org/), combining them means dealing with different coordinate systems, data formats and conventions. Also some shape measurements you find in literature aren't implemented. Here **eidos** comes in.
