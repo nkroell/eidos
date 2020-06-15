@@ -7,11 +7,11 @@ eidos - Python functions to extract of 2D shape measurements from binary images.
 We unify different coordinate systems, conventions and data formats to calculate - fast and easy - the shape measurements of particles defined as 2D binary images. You insert a 2D binary image into the function and get the shape measurements returned as an Pandas Dataframe.
 
 ## How to use eidos?
-Using **eidos** is easy - segment your image and insert the binary image into the function:
+Using **eidos** is easy - segment your image and insert the binary image `bw` into the function `extract_all_shape_measurements_2d`:
 
 ```python
 
-
+df = extract_all_shape_measurements_2d(bw)
 
 ```
 
