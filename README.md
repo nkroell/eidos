@@ -1,4 +1,3 @@
-# Eidos
 ![alt text](https://github.com/nkroell/eidos/raw/development/images/eidos_logo.png "Eidos Logo")
 
 ## Introduction
