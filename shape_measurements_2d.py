@@ -730,12 +730,12 @@ def calc_nassenstein_diameter(bw):
     bw_pad = np.pad(bw, pad_width=1, mode='constant', constant_values=False)
     
     # find lowest row
-    n_pixels_xdirection = bw.shape[0]
+    n_pixels_xdirection = bw_pad.shape[0]
     n_true_pixels_in_ydirection = np.count_nonzero(bw_pad, axis=1)
     n_true_pixels_in_ydirection_from_bottom = n_true_pixels_in_ydirection[::-1]
     idx_lowest_row = n_pixels_xdirection - first_nonzero(n_true_pixels_in_ydirection_from_bottom,axis=0)
     idx_lowest_row = idx_lowest_row - 1
-    lowest_row = bw[idx_lowest_row, :]
+    lowest_row = bw_pad[idx_lowest_row, :]
     # obtain first touching surface by finding the first two changing points:
     changing_points_row = np.where(lowest_row[:-1] != lowest_row[1:])[0]
     changing_points_row = np.sort(changing_points_row)
@@ -754,6 +754,7 @@ def calc_nassenstein_diameter(bw):
     # again we consider the changing points to determine the Nassenstein diameter
     changing_idx_nassenstein_column = np.where(nassenstein_column_from_bottom[:-1] != nassenstein_column_from_bottom[1:])[0]
     changing_idx_nassenstein_column = np.sort(changing_idx_nassenstein_column)
+    
 
     # since we started counting from bottom, we have to transform the indexes to the coordinate system from top
     measurement_point_bottom = n_pixels_xdirection - changing_idx_nassenstein_column[0]
