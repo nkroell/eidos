@@ -262,7 +262,7 @@ def calc_contour_list(bw):
     """
     
     # find contour
-    contour_cv2, hierarchy = cv2.findContours(bw.astype('uint8'), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+    _, contour_cv2, hierarchy = cv2.findContours(bw.astype('uint8'), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
     
     # transform list of contour points and change coordinate system to (x,y)
     contour_cv2 = contour_cv2[0].reshape((-1,2))
