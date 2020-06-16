@@ -726,11 +726,16 @@ def calc_nassenstein_diameter(bw):
         nassenstein_diameter (int): Nassenstein diameter.
         idx (ndarray, int): Indexes of the start (0) and endpoint (1) of the Nassenstein diameter in form [[x0,y0], [x1,y1]].
     """
+    
+
+    
+    
     # padding
     bw_pad = np.pad(bw, pad_width=1, mode='constant', constant_values=False)
     
     # find lowest row
     n_pixels_xdirection = bw_pad.shape[0]
+    
     n_true_pixels_in_ydirection = np.count_nonzero(bw_pad, axis=1)
     n_true_pixels_in_ydirection_from_bottom = n_true_pixels_in_ydirection[::-1]
     idx_lowest_row = n_pixels_xdirection - first_nonzero(n_true_pixels_in_ydirection_from_bottom,axis=0)
@@ -742,8 +747,11 @@ def calc_nassenstein_diameter(bw):
 
     start_idx_first_contact = changing_points_row[0]
     end_idx_first_contact = changing_points_row[1]
-
-    evaluation_idx = int((start_idx_first_contact + end_idx_first_contact)/2)
+ 
+    # column, we want to evaluate
+    # Note: np.round is essential: If we only have one touch point (e.g. at index 3 and 4) then we need to round up to 4, to extract
+    # the correct column (refers to the definition of changing idx from above)
+    evaluation_idx = int(np.round((start_idx_first_contact + end_idx_first_contact)/2))
 
     # extract the column at evaluation idx:
     nassenstein_column = bw_pad[:,evaluation_idx]
@@ -756,7 +764,7 @@ def calc_nassenstein_diameter(bw):
     changing_idx_nassenstein_column = np.sort(changing_idx_nassenstein_column)
     
 
-    # since we started counting from bottom, we have to transform the indexes to the coordinate system from top
+    # since we started counting from bottom, we have to transform the indexes to the coordinate system from top         
     measurement_point_bottom = n_pixels_xdirection - changing_idx_nassenstein_column[0]
     measurement_point_top = n_pixels_xdirection - changing_idx_nassenstein_column[1]
 
