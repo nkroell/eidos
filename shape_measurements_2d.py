@@ -12,11 +12,12 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-def extract_all_shape_measurements_2d(bw, dalpha=9, return_statistical_lengths_distributions=False, return_all_chords=False):
+def extract_all_shape_measurements_2d(bw, spatial_resolution_mm_per_px=1, dalpha=9, return_statistical_lengths_distributions=False, return_all_chords=False):
     """ Calculates 2D shape measurements of particles in a binary image.
     
         Args:
             bw (ndarry, bool): Binary image.
+            spatial_resolution_mm_per_px (float): Spatial resolution of image in [mm/pixel] to return values in [mm]. Default value is 1 [mm/pixel], i. e. results are given in [px].
             dalpha (int/float): Angle in degree [°] to turn bw each iteration. Should be a fraction of 180° (18ß°/n), where n
                 is a natural number.
             return_statistical_lengths_distributions (boolean): If True then the statistical length are returned.
@@ -45,7 +46,7 @@ def extract_all_shape_measurements_2d(bw, dalpha=9, return_statistical_lengths_d
     for i in range(1,n_objects+1):
         bw_single = np.zeros(bw.shape)
         bw_single[labels == i] = True
-        df_shape_measurements_single_particle, df_statistical_lengths_distributions_single_particle, all_chords_single_particle = _shape_measurements_2d_single_object(bw_single, dalpha)
+        df_shape_measurements_single_particle, df_statistical_lengths_distributions_single_particle, all_chords_single_particle = _shape_measurements_2d_single_object(bw_single, spatial_resolution_mm_per_px, dalpha)
         dfs_shape_measurements.append(df_shape_measurements_single_particle)
         dfs_statistical_lengths_distributions.append(df_statistical_lengths_distributions_single_particle)
         all_chords = np.append(all_chords, all_chords_single_particle)
@@ -70,12 +71,14 @@ def extract_all_shape_measurements_2d(bw, dalpha=9, return_statistical_lengths_d
         return df_shape_measurements, dfs_statistical_lengths_distributions, all_chords
 
 
-def _shape_measurements_2d_single_object(bw, dalpha):
+def _shape_measurements_2d_single_object(bw, spatial_resolution_mm_per_px, dalpha):
     """ Calculates 2D rotation and translation invariant shape measurements of a binary image, containing one object.
     
     Args:
         bw (ndarray, bool): Binary image.
-        
+        spatial_resolution_mm_per_px (float): Spatial resolution of image in [mm/pixel].
+        dalpha (int/float): Angle in degree [°] to turn bw each iteration. Should be a fraction of 180° (18ß°/n), where n
+                is a natural number.
     Returns:
     
         df_shape_measurements_single_particle (Pandas Dataframe): Pandas dataframe with one row with shape measurements.
@@ -138,73 +141,73 @@ def _shape_measurements_2d_single_object(bw, dalpha):
     fractal_dimension_perimeter_method = calc_fractal_dimension_perimeter_method(contour, max_feret)
 
     shape_measurements = {
-        "perimeter": perimeter,
-        "convex_perimeter": convex_perimeter,
-        "area": area,
-        "filled_area": filled_area,
-        "convex_area": convex_area,
-        "major_axis_length": major_axis_length,
-        "minor_axis_length": minor_axis_length,
-        "max_inclosing_circle_diameter": max_inclosing_circle_diameter,
-        "min_enclosing_circle_diameter": min_enclosing_circle_diameter,
-        "circumscribing_circle_diameter": circumscribing_circle_diameter,
-        "inscribing_circle_diameter": inscribing_circle_diameter,
-        "x_max": x_max,
-        "y_max": y_max,
-        "width_min_bb": width_min_bb,
-        "height_min_bb": height_min_bb,
-        "area_equal_diameter": area_equal_diameter, 
-        "perimeter_equal_diameter": perimeter_equal_diameter,
-        "geodeticlength": geodeticlength,
-        "thickness": thickness,
+        "perimeter": perimeter * spatial_resolution_mm_per_px,
+        "convex_perimeter": convex_perimeter * spatial_resolution_mm_per_px,
+        "area": area * spatial_resolution_mm_per_px**2,
+        "filled_area": filled_area * spatial_resolution_mm_per_px**2,
+        "convex_area": convex_area * spatial_resolution_mm_per_px**2,
+        "major_axis_length": major_axis_length * spatial_resolution_mm_per_px,
+        "minor_axis_length": minor_axis_length * spatial_resolution_mm_per_px,
+        "max_inclosing_circle_diameter": max_inclosing_circle_diameter * spatial_resolution_mm_per_px,
+        "min_enclosing_circle_diameter": min_enclosing_circle_diameter * spatial_resolution_mm_per_px,
+        "circumscribing_circle_diameter": circumscribing_circle_diameter * spatial_resolution_mm_per_px,
+        "inscribing_circle_diameter": inscribing_circle_diameter * spatial_resolution_mm_per_px,
+        "x_max": x_max * spatial_resolution_mm_per_px,
+        "y_max": y_max * spatial_resolution_mm_per_px,
+        "width_min_bb": width_min_bb * spatial_resolution_mm_per_px,
+        "height_min_bb": height_min_bb * spatial_resolution_mm_per_px,
+        "area_equal_diameter": area_equal_diameter * spatial_resolution_mm_per_px, 
+        "perimeter_equal_diameter": perimeter_equal_diameter * spatial_resolution_mm_per_px,
+        "geodeticlength": geodeticlength * spatial_resolution_mm_per_px,
+        "thickness": thickness * spatial_resolution_mm_per_px,
         "n_erosions_binary_image": n_erosions_binary_image,
         "n_erosions_complement": n_erosions_complement,
         "fractal_dimension_boxcounting_method": fractal_dimension_boxcounting_method,
         "fractal_dimension_perimeter_method": fractal_dimension_perimeter_method,    
-        "max_feret": max_feret,
-        "min_feret": min_feret,
-        "median_feret": median_feret,
-        "mean_feret": mean_feret,
-        "mode_feret": mode_feret,
+        "max_feret": max_feret * spatial_resolution_mm_per_px,
+        "min_feret": min_feret * spatial_resolution_mm_per_px,
+        "median_feret": median_feret * spatial_resolution_mm_per_px,
+        "mean_feret": mean_feret * spatial_resolution_mm_per_px,
+        "mode_feret": mode_feret * spatial_resolution_mm_per_px,
         "std_feret": std_feret,
-        "max_martin": max_martin,
-        "min_martin": min_martin,
-        "median_martin": median_martin,
-        "mean_martin": mean_martin,
-        "mode_martin": mode_martin,
+        "max_martin": max_martin * spatial_resolution_mm_per_px,
+        "min_martin": min_martin * spatial_resolution_mm_per_px,
+        "median_martin": median_martin * spatial_resolution_mm_per_px,
+        "mean_martin": mean_martin * spatial_resolution_mm_per_px,
+        "mode_martin": mode_martin * spatial_resolution_mm_per_px,
         "std_martin": std_martin,
-        "max_nassenstein": max_nassenstein,
-        "min_nassenstein": min_nassenstein,
-        "median_nassenstein": median_nassenstein,
-        "mean_nassenstein": mean_nassenstein,
-        "mode_nassenstein": mode_nassenstein,
+        "max_nassenstein": max_nassenstein * spatial_resolution_mm_per_px,
+        "min_nassenstein": min_nassenstein * spatial_resolution_mm_per_px,
+        "median_nassenstein": median_nassenstein * spatial_resolution_mm_per_px,
+        "mean_nassenstein": mean_nassenstein * spatial_resolution_mm_per_px,
+        "mode_nassenstein": mode_nassenstein * spatial_resolution_mm_per_px,
         "std_nassenstein": std_nassenstein,
-        "max_max_chords": max_max_chords,
-        "min_max_chords": min_max_chords,
-        "median_max_chords": median_max_chords,
-        "mean_max_chords": mean_max_chords,
-        "mode_max_chords": mode_max_chords,
+        "max_max_chords": max_max_chords * spatial_resolution_mm_per_px,
+        "min_max_chords": min_max_chords * spatial_resolution_mm_per_px,
+        "median_max_chords": median_max_chords * spatial_resolution_mm_per_px,
+        "mean_max_chords": mean_max_chords * spatial_resolution_mm_per_px,
+        "mode_max_chords": mode_max_chords * spatial_resolution_mm_per_px,
         "std_max_chords": std_max_chords,
-        "max_all_chords": max_all_chords,
-        "min_all_chords": min_all_chords,
-        "median_all_chords": median_all_chords,
-        "mean_all_chords": mean_all_chords,
-        "mode_all_chords": mode_all_chords,
+        "max_all_chords": max_all_chords * spatial_resolution_mm_per_px,
+        "min_all_chords": min_all_chords * spatial_resolution_mm_per_px,
+        "median_all_chords": median_all_chords * spatial_resolution_mm_per_px,
+        "mean_all_chords": mean_all_chords * spatial_resolution_mm_per_px,
+        "mode_all_chords": mode_all_chords * spatial_resolution_mm_per_px,
         "std_all_chords": std_all_chords 
     }
 
     statistical_lengths_distributions = {
         "measured_angle": measured_angles,
-        "feret_diameter": feret_diameters,
-        "martin_diameter": martin_diameters,
-        "nassenstein_diameter": nassenstein_diameters,
-        "max_chord": max_chords
+        "feret_diameter": feret_diameters * spatial_resolution_mm_per_px,
+        "martin_diameter": martin_diameters * spatial_resolution_mm_per_px,
+        "nassenstein_diameter": nassenstein_diameters * spatial_resolution_mm_per_px,
+        "max_chord": max_chords * spatial_resolution_mm_per_px
     }
 
     df_shape_measurements_single_particle = pd.DataFrame.from_dict(shape_measurements)
     df_statistical_lengths_distributions_single_particle = pd.DataFrame.from_dict(statistical_lengths_distributions)
     
-    all_chords_single_particle = all_chords
+    all_chords_single_particle = all_chords * spatial_resolution_mm_per_px
 
     return df_shape_measurements_single_particle, df_statistical_lengths_distributions_single_particle, all_chords_single_particle
 
@@ -262,7 +265,14 @@ def calc_contour_list(bw):
     """
     
     # find contour
-    _, contour_cv2, hierarchy = cv2.findContours(bw.astype('uint8'), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+    # the try/except case handles different versions of cv2 (some return 2 some return 3 values)
+    try:
+        contour_cv2, hierarchy = cv2.findContours(bw.astype('uint8'), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+    except:
+        try:
+            _, contour_cv2, hierarchy = cv2.findContours(bw.astype('uint8'), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+        except:
+            print("ERROR with cv2.findContours.")
     
     # transform list of contour points and change coordinate system to (x,y)
     contour_cv2 = contour_cv2[0].reshape((-1,2))
